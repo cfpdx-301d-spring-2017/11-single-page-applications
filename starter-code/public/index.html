@@ -40,6 +40,7 @@
           <!-- DONE: Refactor the href attributes in the Home and About anchor tags to navigate users to our new client-side routes -->
           <li class="tab" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
+          <li class="tab" data-content="admin"><a href="/admin" class="icon-happy"> Admin</a></li>
           <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
           <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
         </ul>
@@ -74,9 +75,20 @@
             <li>Hanging with my family</li>
           </ul>
         </section>
+        <section id="admin">
+          <h1>Blog Stats</h1>
+          <dt>Total articles:</dt>
+          <dd class="articles"></dd>
+          <dt>Total words:</dt>
+          <dd class="words"></dd>
+          <h2>Author Stats</h2>
+          <p><em>Details on who is writing, and how much writing they are doing...</em></p>
+          <ul class="author-stats">
+          </ul>
+        </section>
       </section>
-    </main>
-    <footer>
+      </main>
+      <footer>
       &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
     <!-- DONE: Be sure to include the routing functionality with the correct script files.
