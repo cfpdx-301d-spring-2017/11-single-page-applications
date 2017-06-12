@@ -7,10 +7,15 @@ var app = app || {};
 
   adminController.init = function () {
     $('main > section').hide();
-    $('#admin').fadeIn(750);
+    $('#blog-stats').show();
 
-    app.adminView();
+    if (!app.Article.all.length) {
+      app.Article.fetchAll(app.adminView.initAdminPage);
+    }  
+    else {
+      app.adminView.initAdminPage();
+    }   
   }
 
-
+  module.adminController = adminController;
 })(app);
