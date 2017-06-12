@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-// const conString = 'postgres://merylturner@localhost:5432/kilovolt'; // DONE: Don't forget to set your own conString
-const conString = 'postgres://postgres:5036403149@localhost:5432/kilovolt'; // DONE: Don't forget to set your own conString
+const conString = 'postgres://merylturner@localhost:5432/kilovolt'; // DONE: Don't forget to set your own conString
+// const conString = 'postgres://postgres:5036403149@localhost:5432/kilovolt'; // DONE: Don't forget to set your own conString
 
 const client = new pg.Client(conString);
 client.connect();
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
-app.get('/admin', (request, response) => response.sendFile('admin.html', {root: './public'}));
+// app.get('/admin', (request, response) => response.sendFile('admin.html', {root: './public'}));
 app.get('/articles', (request, response) => {
   client.query(`
     SELECT * FROM articles
@@ -98,6 +98,10 @@ app.put('/articles/:id', (request, response) => {
   .then(() => response.send('Update complete'))
   .catch(console.error);
 });
+
+app.get('*', function(request, response) {
+  response.sendFile('index.html', {root: './public'});
+})
 
 app.delete('/articles/:id', (request, response) => {
   client.query(
