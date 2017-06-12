@@ -4,6 +4,7 @@ var app = app || {};
 (function(module) {
   const adminView = {
     initAdminPage : () => {
+      console.log('initAdminPage is running');
       let template = Handlebars.compile($('#author-template').text());
       app.Article.numWordsByAuthor().forEach(stat => {
         $('.author-stats').append(template(stat));
@@ -13,6 +14,6 @@ var app = app || {};
     }
   };
 
-  app.Article.fetchAll(adminView.initAdminPage);
+  // app.Article.fetchAll(adminView.initAdminPage);
   module.adminView = adminView;
 })(app);

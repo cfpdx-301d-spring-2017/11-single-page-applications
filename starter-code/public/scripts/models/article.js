@@ -24,6 +24,7 @@ var app = app || {};
   };
 
   Article.fetchAll = callback => {
+    console.log('fetchall');
     $.get('/articles')
     .then(
       results => {
