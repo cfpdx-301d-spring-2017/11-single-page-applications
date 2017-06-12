@@ -21,6 +21,7 @@ var app = app || {};
   Article.loadAll = rows => {
     rows.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
     Article.all = rows.map(ele => new Article(ele));
+    console.log('this is Article.all:', Article.all);
   };
 
   Article.fetchAll = callback => {
