@@ -12,6 +12,7 @@ var app = app || {};
     var template = Handlebars.compile($('#article-template').text());
 
     this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+    console.log(this.daysAgo);
     this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
     this.body = marked(this.body);
 
@@ -21,12 +22,14 @@ var app = app || {};
   Article.loadAll = rows => {
     rows.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
     Article.all = rows.map(ele => new Article(ele));
+    //console.log(Article.all);
   };
 
   Article.fetchAll = callback => {
-    $.get('/articles')
+    $.get('/')
     .then(
       results => {
+        console.log('results = '+results);
         Article.loadAll(results);
         callback();
       }

@@ -8,7 +8,8 @@ var app = app || {};
   // Also be sure to hide all the main section elements, and reveal the #articles section:
   
   articleController.init = () => {
-    app.articleView.initIndexPage();
+    app.Article.fetchAll(app.articleView.initIndexPage);
+    //app.articleView.initIndexPage();
     $( 'main > section' ).hide();
     $( '#articles' ).show();
   };

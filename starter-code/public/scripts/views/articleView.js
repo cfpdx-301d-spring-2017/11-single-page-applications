@@ -82,13 +82,13 @@ var app = app || {};
       }
     });
     /* TODO: Remember to also remove any invocations of handleMainNav... */
-    articleView.populateFilters();
-    articleView.handleCategoryFilter();
-    articleView.handleAuthorFilter();
-    articleView.setTeasers();
+    app.articleView.populateFilters();
+    app.articleView.handleCategoryFilter();
+    app.articleView.handleAuthorFilter();
+    app.articleView.setTeasers();
     $('pre code').each((i, block) => hljs.highlightBlock(block));
   };
 
-  app.Article.fetchAll(articleView.initIndexPage);
+  //app.Article.fetchAll(articleView.initIndexPage);
   module.articleView = articleView;
 })(app);
