@@ -94,11 +94,11 @@ var app = app || {};
     articleView.populateFilters();
     articleView.handleCategoryFilter();
     articleView.handleAuthorFilter();
-    articleView.handleMainNav();
+    // articleView.handleMainNav();
     articleView.setTeasers();
     $('pre code').each((i, block) => hljs.highlightBlock(block));
   };
-
+  console.log('fetchAll is about to run');
   app.Article.fetchAll(articleView.initIndexPage);
   module.articleView = articleView;
 })(app);
